@@ -1,0 +1,346 @@
+/* scratch.css — Trail Life Scratch Page */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --forest: #1b4332;
+  --forest-mid: #2d6a4f;
+  --moss: #52b788;
+  --cream: #fefae0;
+  --dark-text: #1a1a1a;
+  --light-text: #f8f8f2;
+  --muted-text: #555;
+  --font-display: 'Georgia', 'Times New Roman', serif;
+  --font-body: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'Courier New', monospace;
+}
+
+/* Style 1: body font family and background color */
+body {
+  font-family: var(--font-body);
+  background-color: var(--cream);
+  color: var(--dark-text);
+  line-height: 1.7;
+}
+
+/* Div 1: top navigation bar */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--forest);
+  padding: 0.75rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.back-link {
+  color: var(--moss);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+
+.back-link:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Div 2: hero section with custom background image */
+/* Style 2: background image */
+.hero-wrap {
+  min-height: 92vh;
+  background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1400&q=70');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.hero-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(27,67,50,0.75) 100%);
+}
+
+.hero-text {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 2rem;
+}
+
+/* Style 3: hero font colors */
+.hero-eyebrow {
+  color: var(--moss);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 10vw, 7rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+}
+
+.hero-sub {
+  color: #d4edda;
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.hero-btn {
+  display: inline-block;
+  background-color: var(--moss);
+  color: var(--forest);
+  padding: 0.75rem 2rem;
+  border-radius: 2px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.hero-btn:hover {
+  background-color: #74c69d;
+  transform: translateY(-2px);
+}
+
+.anchor-nav {
+  background-color: var(--forest-mid);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+.anchor-nav a {
+  color: #d8f3dc;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  transition: background 0.2s, color 0.2s;
+  border-right: 1px solid rgba(255,255,255,0.15);
+}
+
+.anchor-nav a:last-child { border-right: none; }
+
+.anchor-nav a:hover {
+  background-color: var(--forest);
+  color: var(--moss);
+}
+
+/* Div 3: section wrapper */
+.section-wrap {
+  padding: 5rem 1.5rem;
+}
+
+.section-wrap.alt-bg {
+  background-color: #f0f7f3;
+}
+
+/* Div 4: content container */
+.content-div {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.text-center-div {
+  text-align: center;
+}
+
+/* Style 4: section heading font family and color */
+.section-heading {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  color: var(--forest);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid var(--moss);
+  display: inline-block;
+}
+
+.content-div p {
+  margin-bottom: 1rem;
+  color: var(--muted-text);
+  font-size: 1.05rem;
+}
+
+.inline-img {
+  width: 100%;
+  max-width: 800px;
+  border-radius: 4px;
+  display: block;
+  margin: 1.5rem auto;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+.img-caption {
+  font-size: 0.85rem !important;
+  color: #888 !important;
+  font-style: italic;
+  text-align: center;
+  margin-top: 0 !important;
+}
+
+/* Gear list: ordered list with nested unordered lists */
+.gear-list {
+  counter-reset: gear-counter;
+  list-style: none;
+  padding: 0;
+}
+
+.gear-list > li {
+  counter-increment: gear-counter;
+  background: #fff;
+  border-left: 5px solid var(--moss);
+  border-radius: 4px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  position: relative;
+}
+
+.gear-list > li::before {
+  content: counter(gear-counter);
+  position: absolute;
+  top: -14px;
+  left: -14px;
+  background: var(--forest);
+  color: #fff;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.gear-list > li > strong {
+  display: block;
+  font-size: 1.05rem;
+  color: var(--forest);
+  margin-bottom: 0.6rem;
+}
+
+.gear-list ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  color: var(--muted-text);
+}
+
+.gear-list ul li {
+  margin-bottom: 0.3rem;
+}
+
+/* Div 5: trail text items */
+.trail-item {
+  background: #fff;
+  border-left: 5px solid var(--moss);
+  border-radius: 4px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.trail-item h3 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--forest);
+  margin-bottom: 0.25rem;
+}
+
+.trail-meta {
+  font-size: 0.88rem !important;
+  color: var(--moss) !important;
+  font-weight: 600;
+  margin-bottom: 0.6rem !important;
+}
+
+.trail-item p:last-child {
+  margin-bottom: 0;
+}
+
+.video-wrap {
+  position: relative;
+  max-width: 720px;
+  margin: 1.5rem auto;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+}
+
+.video-wrap iframe {
+  display: block;
+  width: 100%;
+  height: 405px;
+}
+
+.tableau-wrap {
+  max-width: 820px;
+  margin: 1.5rem auto;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+}
+
+.tableau-wrap tableau-viz {
+  width: 100%;
+  height: 600px;
+  display: block;
+}
+
+.scratch-footer {
+  background-color: var(--forest);
+  color: #d8f3dc;
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.scratch-footer a {
+  color: var(--moss);
+  text-decoration: none;
+}
+
+.scratch-footer a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .anchor-nav a {
+    padding: 0.6rem 0.9rem;
+    font-size: 0.78rem;
+  }
+  .section-wrap {
+    padding: 3rem 1rem;
+  }
+  .video-wrap iframe {
+    height: 220px;
+  }
+}

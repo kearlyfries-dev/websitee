@@ -1,0 +1,131 @@
+/* style.css — Professional Bootstrap Pages */
+
+:root {
+  --accent: #2e7d32;
+  --accent-light: #4caf50;
+  --accent-dark: #1b5e20;
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  color: #212529;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 4px;
+  background: var(--accent);
+  margin-top: 8px;
+}
+
+.text-center .section-title::after {
+  margin: 8px auto 0;
+}
+
+.eyebrow-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--accent-light);
+}
+
+.hero-section {
+  min-height: 92vh;
+  background: linear-gradient(135deg, #0d1b0e 0%, #1b5e20 50%, #2e4a1e 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1400&q=60") center/cover no-repeat;
+  opacity: 0.15;
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.text-accent { color: var(--accent) !important; }
+.bg-accent { background-color: var(--accent) !important; color: #fff; }
+
+.btn-accent {
+  background-color: var(--accent);
+  color: #fff;
+  border: none;
+  transition: background 0.2s;
+}
+
+.btn-accent:hover {
+  background-color: var(--accent-dark);
+  color: #fff;
+}
+
+.navbar-brand {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+}
+
+.resume-block {
+  background: #fff;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+
+.resume-section-heading {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--accent-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.social-icon {
+  color: var(--accent);
+  transition: color 0.2s, transform 0.2s;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  color: var(--accent-dark);
+  transform: translateY(-3px);
+}
+
+.profile-photo {
+  width: 120px;
+  height: 150px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 70vh;
+  }
+  .section-title {
+    font-size: 1.6rem;
+  }
+}
